@@ -401,7 +401,7 @@ const EmployeeForm = () => {
                                                                 <div key={index} className="flex items-center">
 
                                                                     <div className="m-2">
-                                                                        <FormInput
+                                                                        <Education
                                                                             type="text"
                                                                             label="College Name"
                                                                             name={`education[${index}].collegeName`}
@@ -409,7 +409,7 @@ const EmployeeForm = () => {
                                                                     </div>
 
                                                                     <div className="m-2 ">
-                                                                        <FormInput
+                                                                        <Education
                                                                             type="text"
                                                                             label="Degree"
                                                                             name={`education[${index}].degree`}
@@ -417,7 +417,7 @@ const EmployeeForm = () => {
                                                                     </div>
 
                                                                     <div className="m-2">
-                                                                        <FormInput
+                                                                        <education
                                                                             type="number"
                                                                             label="Passed Year"
                                                                             name={`education[${index}].passedYear`}
