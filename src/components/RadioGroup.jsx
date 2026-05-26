@@ -7,7 +7,7 @@ const RadioGroup = ({ children, ...props }) => {
         <>
             <label className="radio-label">
                 <input type="radio" className="radio-input w-4 h-4 mt-2 accent-primary cursor-pointer"
-                    {...props} {...field} />{children}
+                    {...field} {...props} />{children}
             </label>
 
         </>

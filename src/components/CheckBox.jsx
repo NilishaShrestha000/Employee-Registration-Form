@@ -2,7 +2,7 @@ import { useField } from "formik"
 
 // Aimport { Checkbox } from "@/components/ui/checkbox";
 const CheckBox = ({ children, ...props }) => {
-    const [field, meta] = useField({ ...props, type: 'checkbox' });
+    const [field] = useField({ ...props, type: 'checkbox' });
     return (
         <>
 
