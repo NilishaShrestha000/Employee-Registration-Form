@@ -69,7 +69,7 @@ const EmployeeValidation = Yup.object({
                     .required('Required'),
 
                 degree: Yup.string()
-                    .min(3, "Degree must be minimum 2 charecters.")
+                    .min(2, "Degree must be minimum 2 charecters.")
                     .required('Required'),
 
                 passedYear: Yup.string()

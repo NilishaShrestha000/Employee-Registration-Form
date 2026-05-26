@@ -10,6 +10,7 @@ import Education from "@/components/Education";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Country, State } from 'country-state-city';
+import { RxReset } from "react-icons/rx";
 
 
 
@@ -48,7 +49,7 @@ const EmployeeForm = () => {
                     alert("Form Submitted!", values)
                 }}
             >
-                {({ values, setFieldValue }) => (
+                {({ values, setFieldValue, resetForm, isValid, dirty }) => (
 
                     <Form>
                         <div className="p-20">
@@ -417,7 +418,7 @@ const EmployeeForm = () => {
                                                                     </div>
 
                                                                     <div className="m-2">
-                                                                        <education
+                                                                        <Education
                                                                             type="number"
                                                                             label="Passed Year"
                                                                             name={`education[${index}].passedYear`}
@@ -472,8 +473,8 @@ const EmployeeForm = () => {
                                         </div>
                                         <div className="mb-3 mt-2">
                                             {/* Submit */}
-                                            <Button type="submit"> Submit</Button>
-
+                                            <Button type="submit" disabled={!isValid || !dirty}> Submit</Button>
+                                            <Button type="submmit" onClick={resetForm}> <RxReset /> Reset</Button>
                                         </div>
 
                                     </div>
