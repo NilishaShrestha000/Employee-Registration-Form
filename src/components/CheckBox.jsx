@@ -21,7 +21,7 @@ const CheckBox = ({ children, ...props }) => {
                                 }
                             });
                         } else { helpers.setValue(checked); }
-                        helpers.setTouched(true);
+                        setTimeout(() => helpers.setTouched(true), 0);
                     }}
                     onBlur={field.onBlur}
                     name={field.name}

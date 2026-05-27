@@ -28,8 +28,9 @@ const EmployeeForm = () => {
         { name: "javascript", icon: IoLogoJavascript },
         { name: "tailwind", icon: RiTailwindCssFill },
         { name: "typescript", icon: BsTypescript },
+        { name: "react", icon: FaReact },
         { name: "formik", icon: SiFormik },
-        { name: " yup", icon: GrValidate },
+        { name: "yup", icon: GrValidate },
         { name: "shadcn", icon: SiShadcnui }
     ];
 
@@ -171,15 +172,17 @@ const EmployeeForm = () => {
                                         {/* Skills */}
                                         <div>
                                             <Label>SKILLS</Label>
-                                            {skills.map((skill, index) =>
-                                                <ArrayCheckBox
-                                                    key={skill.name}
-                                                    name="skills"
-                                                    value={skill.name}
-                                                    icon={skill.icon}
-                                                    showError={index === skills.length - 1}>
-                                                    {skill.name.charAt(0).toUpperCase() + skill.name.slice(1)}
-                                                </ArrayCheckBox>)}
+                                            <div className="grid grid-cols-7 gap-5 mt-2 mb-5 px-5 py-2">
+                                                {skills.map((skill, index) =>
+                                                    <ArrayCheckBox
+                                                        key={skill.name}
+                                                        name="skills"
+                                                        value={skill.name}
+                                                        icon={skill.icon}
+                                                        showError={index === skills.length - 1}>
+                                                        {skill.name.charAt(0).toUpperCase() + skill.name.slice(1)}
+                                                    </ArrayCheckBox>)}
+                                            </div>
 
                                         </div>
                                         <div className="border border-gray-300 mt-2 mb-5" />
@@ -223,58 +226,58 @@ const EmployeeForm = () => {
                                         {/*Upload File */}
                                         <div >
                                             <Label>PROFILE PICTURE</Label>
-                                            <UploadFile
-                                                name="profilepicture"
-                                            />
+                                            <div className="px-5 py-2">
+                                                <UploadFile
+                                                    name="profilepicture"
+                                                />
+                                            </div>
                                         </div>
                                         <div className="border border-gray-300 mt-2 mb-5" />
 
 
                                         {/* Education*/}
                                         <div >
-                                            <Label>Education</Label>
+                                            <Label>EDUCATION</Label>
                                             <FieldArray name="education">
                                                 {({ push, remove, form }) => {
                                                     const { values } = form;
                                                     return (
-                                                        <div >
+                                                        <div className="px-5 py-2">
                                                             {values.education.map((edu, index) => (
-                                                                <div key={index} className="flex items-center px-5 py-2">
+                                                                <div key={index}>
+                                                                    <div className="flex items-end mt-2 mb-2 gap-3 px-5 py-2 bg-white rounded-lg border border-gray-200">
+                                                                        <div className="m-2 w-full">
+                                                                            <Education
+                                                                                type="text"
+                                                                                label="College Name"
+                                                                                name={`education[${index}].collegeName`}
+                                                                                placeholder="eg: IIMS" />
+                                                                        </div>
 
-                                                                    <div className="m-2">
-                                                                        <Education
-                                                                            type="text"
-                                                                            label="College Name"
-                                                                            name={`education[${index}].collegeName`}
-                                                                            placeholder="eg: IIMS" />
-                                                                    </div>
+                                                                        <div className="m-2 w-full ">
+                                                                            <Education
+                                                                                type="text"
+                                                                                label="Degree"
+                                                                                name={`education[${index}].degree`}
+                                                                                placeholder="e.g: BCS" />
+                                                                        </div>
 
-                                                                    <div className="m-2 ">
-                                                                        <Education
-                                                                            type="text"
-                                                                            label="Degree"
-                                                                            name={`education[${index}].degree`}
-                                                                            placeholder="e.g: BCS" />
-                                                                    </div>
+                                                                        <div className="m-2 w-full">
+                                                                            <Education
+                                                                                type="number"
+                                                                                label="Passed Year"
+                                                                                name={`education[${index}].passedYear`}
+                                                                                placeholder="eg: 2024" />
+                                                                        </div>
 
-                                                                    <div className="m-2">
-                                                                        <Education
-                                                                            type="number"
-                                                                            label="Passed Year"
-                                                                            name={`education[${index}].passedYear`}
-                                                                            placeholder="eg: 2024" />
-                                                                    </div>
-
-                                                                    <div>
                                                                         {values.education.length > 1 && (
-
                                                                             <Button type="button" onClick={() => remove(index)}> Remove </Button>
-
                                                                         )}
-
-                                                                        <Button type="button" onClick={() => push({ collegeName: "", degree: "", passedYear: "" })}> Add </Button>
                                                                     </div>
+
+                                                                    <Button type="button" className="mb-3" onClick={() => push({ collegeName: "", degree: "", passedYear: "" })}> Add </Button>
                                                                 </div>
+
                                                             ))}
 
                                                         </div>
@@ -288,11 +291,13 @@ const EmployeeForm = () => {
                                         {/* Additional info */}
                                         <div >
                                             <Label>ADDITIONAL INFORMATION</Label>
-                                            <CheckBox
-                                                name="additionalInfo"
-                                                className="px-5 py-2">
-                                                Add Additional Information
-                                            </CheckBox>
+                                            <div className="mt-2 mb-5 px-5 py-2">
+                                                <CheckBox
+                                                    name="additionalInfo"
+                                                    className="px-5 py-2">
+                                                    Add Additional Information
+                                                </CheckBox>
+                                            </div>
                                         </div>
 
                                         {/*About Yourself*/}
@@ -315,10 +320,13 @@ const EmployeeForm = () => {
                                             </CheckBox>
                                         </div>
 
-                                        <div >
+                                        <div className="flex gap-5 mt-5 items-center justify-center" >
+
                                             {/* Submit */}
                                             <Button type="submit" disabled={!isValid || !dirty}> Submit</Button>
+
                                             <Button type="submmit" onClick={resetForm}> <RxReset /> Reset</Button>
+
                                         </div>
 
                                     </div>

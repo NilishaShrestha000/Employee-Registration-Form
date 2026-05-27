@@ -7,36 +7,38 @@ const ArrayCheckBox = ({ children, icon: Icon, showError, ...props }) => {
     const [field, meta, helpers] = useField({ ...props, type: 'checkbox' });
     return (
         <>
-            <div className="grid p-5 w-40">
+            <div className=" flex flex-col justify-center">
 
-                <div
-                    checked={field.checked}
-                    onCheckedChange={(checked) => {
-                        field.onChange({
-                            target: {
-                                name: field.name,
-                                value: props.value,
-                                type: 'checkbox',
-                                checked: checked
-                            }
-                        });
-                        setTimeout(() => helpers.setTouched(true), 0);
-                    }}
+                <div onClick={() => {
+                    field.onChange({
+                        target: {
+                            name: field.name,
+                            value: props.value,
+                            type: 'checkbox',
+                            checked: !field.checked
+                        }
+                    });
+                    setTimeout(() => helpers.setTouched(true), 0);
+                }}
                     onBlur={field.onBlur}
                     name={field.name}
-                    className={`flex flex-col cursor-pointer items-center border rounded-lg border-amber-950 
+                    className={`flex flex-col p-2 cursor-pointer items-center border rounded-lg border-amber-950 
                             ${field.checked ?
-                            "bg - amber - 200"
-                            : "bg - amber - 500"}`}
+                            "bg-gray-400"
+                            : "bg-gray-300"}`}
                 >
                     {Icon && <Icon className="text-2xl mb-1" />}
                     <span className="text-xs font-medium">{children}</span>
                 </div>
-                {
-                    showError && meta.touched && meta.error ?
-                        (<div className="error text-sm text-red-500">{meta.error}</div>)
-                        : null
-                }
+
+                <div className="justify-center">
+
+                    {
+                        showError && meta.touched && meta.error ?
+                            (<div className="error text-sm items-center justify-center text-red-500">{meta.error}</div>)
+                            : null
+                    }
+                </div>
 
             </div>
         </>

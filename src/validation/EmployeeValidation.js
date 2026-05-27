@@ -38,7 +38,7 @@ const EmployeeValidation = Yup.object({
         .required('Required'),
 
     skills: Yup.array()
-        .of(Yup.string().oneOf(['javascript', 'tailwind', 'react', 'typescript', 'formik', 'yup', 'shadcn']))
+        .of(Yup.string().oneOf(['javascript', 'tailwind', 'typescript', 'react', 'formik', 'yup', 'shadcn']))
         .min(1, 'Pick at least one Skill.'),
 
     country: Yup.string()
