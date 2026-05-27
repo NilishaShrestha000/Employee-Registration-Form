@@ -14,13 +14,17 @@ const UploadFile = ({ label, ...props }) => {
             <Label htmlFor={props.id || props.name}>{label}  </Label>
 
             <label htmlFor={props.id || props.name}>
-                <div className="mt-2">
-                    <span className="px-4 py-2 bg-white border border-gray-400 rounded-md text-sm text-gray-700 hover:bg-gray-50 cursor-pointer">
-                        Choose File
-                    </span>
-                    <span className="text-sm text-gray-500">
-                        {field.value ? field.value.name : "No file chosen"}
-                    </span>
+                <div className="mt-2 gap-3">
+                    <div>
+                        <span className="px-4 py-2 bg-white border border-gray-400 rounded-md text-sm text-gray-700 hover:bg-gray-50 cursor-pointer">
+                            Choose File
+                        </span>
+                    </div>
+                    <div>
+                        <span className="text-sm text-gray-500">
+                            {field.value ? field.value.name : "No file chosen"}
+                        </span>
+                    </div>
                 </div>
             </label>
             <input

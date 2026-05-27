@@ -6,11 +6,13 @@ const FormInput = ({ label, ...props }) => {
     const [field, meta] = useField(props);
     return (
         <>
-            <Label htmlFor={props.id || props.name}>{label}</Label>
-            <Input className=" text-black mt-2"  {...field} {...props} />
-            {meta.touched && meta.error ?
-                (<div className="error text-red-500 text-sm mt-1">{meta.error}</div>)
-                : null}
+            <div className="mb-3 mt-2">
+                <Label htmlFor={props.id || props.name}>{label}</Label>
+                <Input className=" text-black mt-2"  {...field} {...props} />
+                {meta.touched && meta.error ?
+                    (<div className="error text-red-500 text-sm mt-1">{meta.error}</div>)
+                    : null}
+            </div>
         </>
 
     );
