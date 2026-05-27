@@ -68,7 +68,7 @@ const EmployeeForm = () => {
                 {({ values, setFieldValue, resetForm, isValid, dirty }) => (
 
                     <Form>
-                        <div className="p-20 ">
+                        <div className="px-20 py-10 lg:px-80 ">
                             <div className="border-2 border-gray-400 rounded-lg bg-gray-100 ">
                                 <div className="p-9">
                                     <h1 className="font-bold text-3xl text-center mt-3">Employee Registration Form</h1>
@@ -136,7 +136,8 @@ const EmployeeForm = () => {
                                                     name="confirmpassword"
                                                     type="password"
                                                     autoComplete="new-password"
-                                                    placeholder="Enter Confirm Password..." />
+                                                    placeholder="Enter Confirm Password..."
+                                                />
                                             </div>
 
                                             {/*Date of Birth*/}
