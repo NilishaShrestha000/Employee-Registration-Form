@@ -68,11 +68,16 @@ const EmployeeForm = () => {
                 {({ values, setFieldValue, resetForm, isValid, dirty }) => (
 
                     <Form>
-                        <div className="px-20 py-10 lg:px-80 ">
+                        <div className="px-20 py-10 md:px-30 lg:px-80 transition-all">
                             <div className="border-2 border-gray-400 rounded-lg bg-gray-100 ">
                                 <div className="p-9">
-                                    <h1 className="font-bold text-3xl text-center mt-3">Employee Registration Form</h1>
-
+                                    <div className="flex gap-5 mb-5">
+                                        <img src="animal.png" className="mt-2 w-24 h-24 object-cover rounded-full border border-gray-300" />
+                                        <div>
+                                            <h1 className="font-bold text-3xl  mt-3">Employee Registration Form</h1>
+                                            <p className="text-md mt-2 ">Please fill out this form for HR department to complete your Registration as an Employee.</p>
+                                        </div>
+                                    </div>
                                     <div className="border-2 border-gray-300 mt-2 mb-5" />
                                     <div>
                                         <Label>PERSONAL INFORMATION</Label>
@@ -115,6 +120,7 @@ const EmployeeForm = () => {
                                                     label="Phone Number"
                                                     name="number"
                                                     type="number"
+                                                    maxLength={10}
                                                     placeholder="Enter Phone Number..."
                                                 />
                                             </div>
@@ -324,7 +330,7 @@ const EmployeeForm = () => {
                                         <div className="flex gap-5 mt-5 items-center justify-center" >
 
                                             {/* Submit */}
-                                            <Button type="submit" disabled={!isValid || !dirty}> Submit</Button>
+                                            <Button type="submit" disabled={!isValid || !dirty} size="lg"> Submit</Button>
 
                                             <Button type="submmit" onClick={resetForm}> <RxReset /> Reset</Button>
 

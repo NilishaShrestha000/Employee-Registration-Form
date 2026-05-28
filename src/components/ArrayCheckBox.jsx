@@ -22,7 +22,7 @@ const ArrayCheckBox = ({ children, icon: Icon, showError, ...props }) => {
                 }}
                     onBlur={field.onBlur}
                     name={field.name}
-                    className={`flex flex-col p-2 cursor-pointer items-center border rounded-lg border-amber-950 
+                    className={`flex flex-col p-2 cursor-pointer items-center border rounded-lg overflow-hidden
                             ${field.checked ?
                             "bg-gray-400"
                             : "bg-gray-300"}`}

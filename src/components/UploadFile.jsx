@@ -15,8 +15,16 @@ const UploadFile = ({ label, ...props }) => {
 
             <label htmlFor={props.id || props.name}>
                 <div className="mt-2 gap-3">
-                    <div>
-                        <span className="px-4 py-2 bg-white border border-gray-400 rounded-md text-sm text-gray-700 hover:bg-gray-50 cursor-pointer">
+                    <div className="flex gap-5">
+                        {field.value && (
+                            <img
+                                src={URL.createObjectURL(field.value)}
+                                alt="Placeholder Image" width="200" height="300"
+
+                                className="mt-2 w-24 h-24 object-cover rounded-full border border-gray-300"
+                            />
+                        )}
+                        <span className="px-4 py-2 h-10 bg-white border border-gray-400 rounded-md text-sm text-gray-700 hover:bg-gray-50 cursor-pointer">
                             Choose File
                         </span>
                     </div>
@@ -35,14 +43,6 @@ const UploadFile = ({ label, ...props }) => {
                 className="hidden"
             />
 
-            {/*Preview*/}
-            {field.value && (
-                <img
-                    src={URL.createObjectURL(field.value)}
-                    alt="preview"
-                    className="mt-2 w-24 h-24 object-cover rounded-md border border-gray-300"
-                />
-            )}
 
             {meta.touched && meta.error ?
                 (<div className="error text-red-500 text-sm mt-1">{meta.error}</div>)
